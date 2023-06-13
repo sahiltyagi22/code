@@ -1,5 +1,7 @@
 //  JAVASCRIPT LOOPS 
 
+const { log } = require("console")
+
 //  FOR LOOP FOR GENERAL PURPOSES
 
 // const arr = [1,2,3,4,5,6,7,]
@@ -46,16 +48,44 @@
 
 // ===================>>>>>>>>>> WHILE AND DO-WHILE LOOP<<===================================
 
-const arr = [1,2,3,4,5,6,7,8]
-let i =0;
+// const arr = [1,2,3,4,5,6,7,8]
+// let i =0;
 // while(i<arr.length){
 //     console.log(10 *arr[i])
 //     i++
 // }
 
-do{
-    console.log(10 *arr[i]);
-    i++
-}
+// do{
+//     console.log(10 *arr[i]);
+//     i++
+// }
 
-while(i<10)
+// while(i<10)
+ 
+
+//  ------------ BREAK&CONTINUE============
+
+// for(let i =0; i<9; i++ ){
+//     if(i===6){
+//         continue;
+//     }else{
+//         console.log(i);
+//     }
+// }
+
+// ========== date method ============
+
+// const date = new Date()
+// console.log(date);
+
+// const year = date.getFullYear()
+// console.log(year);
+
+
+// const date = new Date()
+
+// const timer = date.setFullYear(2023)
+// // console.log(timer);
+// console.log(date.getDate());
+
+

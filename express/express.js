@@ -6,7 +6,7 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({extended : true}))
 
 
-const courses =[
+let courses =[
     {id :1 , name : 'java'},
   { id:2 , name : "c++"},
    { id:3 , name : 'javascript'},
@@ -51,9 +51,21 @@ app.put('/courses/:name', (req,res)=>{
         res.status(404).send("the course you are looking for doesnt exists")
     }
 
-    course.name = req.body.name
+    course.name = req.params.name
     res.send(course)
 })
+
+
+app.delete('/courses/:name' , (req,res)=>{
+    let updatedCourse = courses.filter(course =>course.name !== req.params.name )
+    courses= updatedCourse
+
+    res.send(courses)
+})
+
+
+
+
 
 
 
