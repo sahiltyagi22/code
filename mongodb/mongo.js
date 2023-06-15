@@ -17,7 +17,8 @@ const learnSchema = {
     name : String,
     age : Number,
     gender : String,
-    interest : [String]
+    interest : [String],
+    data : String
 }
 
 const learnModel = mongoose.model('learnModel' , learnSchema)
@@ -35,34 +36,45 @@ const learnModel = mongoose.model('learnModel' , learnSchema)
 
 // profile()
 
-app.get('/', (req,res)=>{
-    res.sendFile(__dirname + '/index.html')
-    // res.send("welcome to homepage")
-})
+// app.get('/', (req,res)=>{
+//     res.sendFile(__dirname + '/index.html')
+//     // res.send("welcome to homepage")
+// })
 
 
-app.post('/', (req,res)=>{
-    let name = req.body.name
-    let age = req.body.age
-    let gender = req.body.gender
+// app.post('/', (req,res)=>{
+//     let name = req.body.name
+//     let age = req.body.age
+//     let gender = req.body.gender
+//     let data = req.body.data
 
-  async function profile(){
-    const profile2 = new learnModel({
-        name : name,
-        age : age,
-        gender : gender,
-        // interest :["reading" , 'playing' , 'slaying']
-    })
+//   async function profile(){
+//     const profile2 = new learnModel({
+//         name : name,
+//         age : age,
+//         gender : gender,
+//         data : data
+//     })
   
-  const result = await profile2.save()
-}
+//   const result = await profile2.save()
+// }
 
-profile()
+// profile()
 
-    res.send(`Dear ${name} your response has been submitted`)
+//     res.send(`Dear ${name} your response has been submitted`)
+// })
+app.get ('/get' ,(req,res)=>{
+    async function fetch(){
+        let fetchData = await learnModel.find({name : 'sahil'}).select({data : 1 , _id : 0})
+        const data = fetchData[1]
+        res.send(data)
+    }
+    
+    fetch()
+   
 })
 
 
-app.listen(3000,()=>{
+app.listen(7000,()=>{
     console.log("server is running");
 })
